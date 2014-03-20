@@ -1,0 +1,6 @@
+*.swp
+/.tmp/
+/Tests/app/bundles/
+/Tests/app/bootstrap.php.cache
+/vendor/
+/composer.lock

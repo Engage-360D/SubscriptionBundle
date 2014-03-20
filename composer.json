@@ -1,0 +1,56 @@
+{
+    "name": "engage360d/subscription-bundle",
+    "type": "symfony-bundle",
+    "description": "Engage360dSubscriptionBundle",
+    "keywords": ["Engage", "360D"],
+    "homepage": "http://github.com/engage-360d",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vyacheslav Slinko",
+            "email": "vyacheslav.slinko@gmail.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-0": {
+            "Engage360d\\Bundle\\SubscriptionBundle": ""
+        }
+    },
+
+    "minimum-stability": "dev",
+
+    "require": {
+        "symfony/symfony": "2.3.*",
+        "jms/serializer-bundle": "0.13.*",
+        "vslinko/unisender": "0.1.*"
+    },
+
+    "require-dev": {
+        "symfony/monolog-bundle": "2.3.*",
+        "sensio/distribution-bundle": "dev-master",
+        "nelmio/api-doc-bundle": "dev-master"
+    },
+
+    "scripts": {
+        "post-install-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-update-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ]
+    },
+
+    "target-dir": "Engage360d/Bundle/SubscriptionBundle",
+
+    "extra": {
+        "symfony-app-dir": "Tests/app",
+        "symfony-web-dir": "Tests/app"
+    }
+}

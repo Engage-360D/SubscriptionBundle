@@ -1,0 +1,5 @@
+post_subscription_contacts:
+    path: /subscription_contacts/
+    methods: [POST]
+    defaults:
+        _controller: Engage360dSubscriptionBundle:Api\Subscription:postSubscriptionContacts

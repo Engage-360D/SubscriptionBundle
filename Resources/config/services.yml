@@ -1,0 +1,5 @@
+services:
+    engage360dsubscription.unisender:
+        class: Engage360d\Bundle\SubscriptionBundle\Service\Unisender
+        arguments:
+            - %engage360d_subscription.api_key%

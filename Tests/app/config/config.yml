@@ -1,0 +1,18 @@
+imports:
+    - { resource: parameters.yml }
+
+framework:
+    secret: %secret%
+    router: { resource: "%kernel.root_dir%/config/routing.yml" }
+    form: true
+    csrf_protection: false
+    validation: { enable_annotations: true }
+    templating: { engines: ['twig'] }
+    default_locale: %locale%
+    session: ~
+
+nelmio_api_doc: ~
+
+engage360d_subscription:
+    api_key: %unisender_api_key%
+    default_list_id: %unisender_default_list_id%

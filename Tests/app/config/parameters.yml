@@ -1,0 +1,5 @@
+parameters:
+    secret: ThisTokenIsNotSoSecretChangeIt
+    locale: ru
+    unisender_api_key: 59qajmg4aqh4pwgesqtpftj1apm9hutxa3iufrro
+    unisender_default_list_id: 3354164
