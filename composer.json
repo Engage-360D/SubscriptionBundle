@@ -21,8 +21,8 @@
     "minimum-stability": "dev",
 
     "require": {
-        "symfony/symfony": "2.3.*",
-        "jms/serializer-bundle": "0.13.*",
+        "symfony/symfony": ">=2.3.0",
+        "jms/serializer-bundle": ">=0.13.0",
         "vslinko/unisender": "0.1.*"
     },
 
