@@ -20,9 +20,9 @@ class SubscriptionController extends Controller
      *  resource=true,
      *  description="Подписка контакта в список рассылки по умолчанию",
      *  parameters={
-     *      {"name"="subscription_contact[email]", "dataType"="string", "required"=true, "description"="Email контакта"},
-     *      {"name"="subscription_contact[phone]", "dataType"="string", "required"=false, "description"="Мобильный телефон контакта"},
-     *      {"name"="subscription_contact[name]", "dataType"="string", "required"=false, "description"="Имя контакта"}
+     *      {"name"="data[email]", "dataType"="string", "required"=true, "description"="Email контакта"},
+     *      {"name"="data[phone]", "dataType"="string", "required"=false, "description"="Мобильный телефон контакта"},
+     *      {"name"="data[name]", "dataType"="string", "required"=false, "description"="Имя контакта"}
      *  }
      * )
      */
@@ -31,7 +31,7 @@ class SubscriptionController extends Controller
         $unisender = $this->get('engage360d_subscription.unisender');
         $defaultListId = $this->container->getParameter('engage360d_subscription.default_list_id');
 
-        $form = $this->container->get('form.factory')->createNamedBuilder('subscription_contact', 'form')
+        $form = $this->container->get('form.factory')->createNamedBuilder('data', 'form')
             ->add('email', 'email', array(
                 'constraints' => array(
                     new NotBlank(),
