@@ -59,6 +59,7 @@ class SubscriptionController extends Controller
         $form->handleRequest($this->getRequest());
 
         if (!$form->isValid()) {
+            // TODO json-api
             return new Response($this->get('jms_serializer')->serialize($form, 'json'), 200, array(
                 'Content-Type' => 'application/json'
             ));
@@ -77,6 +78,7 @@ class SubscriptionController extends Controller
         $result = json_decode($unisender->subscribe($contact));
 
         if (isset($result->error)) {
+            // TODO json-api
             return new JsonResponse(array(
                 'errors' => array(
                     $result->error
@@ -86,10 +88,12 @@ class SubscriptionController extends Controller
                 )
             ));
         }
+        
+        $data = $contact['fields'];
+        $data['id'] = (string) $result->result->person_id;
 
         return new JsonResponse(array(
-            'id' => $result->result->person_id,
-            'fields' => $contact['fields']
+            'data' => $data,
         ));
     }
 }
