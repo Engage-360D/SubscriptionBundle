@@ -65,8 +65,26 @@ class SubscriptionController extends Controller
             ));
         }
 
+        $fields = $form->getData();
+
+        $exists = json_decode($unisender->exportContacts(array(
+            'list_id' => $defaultListId,
+            'email' => $fields['email'],
+        )), true)['result']['data'];
+
+        if (count($exists) > 0) {
+            // TODO json-api
+            return new Response(json_encode(array(
+                'errors' => array(
+                    'Данный email уже находится в списке рассылки'
+                )
+            )), 200, array(
+                'Content-Type' => 'application/json'
+            ));
+        }
+
         $contact = array(
-            'fields' => $form->getData(),
+            'fields' => $fields,
             'list_ids' => $defaultListId,
             'double_optin' => 1,
             'confirm_ip' => $this->getRequest()->getClientIp()
@@ -88,7 +106,7 @@ class SubscriptionController extends Controller
                 )
             ));
         }
-        
+
         $data = $contact['fields'];
         $data['id'] = (string) $result->result->person_id;
 
